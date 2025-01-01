@@ -39,12 +39,14 @@ export default function Programmers() {
     fontSize: "1.5em",
     marginTop: "0.5em",
     color: "royalblue", // 🤔
+
   };
 
   return (
     <div className="widget-programmers container">
       <h2>Programmers</h2>
       <div className="programmers">
+        
         {/* Nasty bug! We should map over a slice of state, instead of 'listOfAwesome'.
           We might say: "it works, though!" But if the list of programmers is not state,
           we could never add or edit programmers in the future. The list would be a static thing. ;)" */}

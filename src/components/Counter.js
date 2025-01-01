@@ -49,50 +49,32 @@ STEP 6:
 import React, { useState } from "react"; /* STEP 0 */
 
 export default function Counter() {
-  const [number, setNumber] = useState(0);
   /* STEP 1 */
+  const [count, setCount] = useState(0); // Initialize count state to 0
 
+  /* STEP 2 */
   const style = {
     fontSize: "1.5em",
     marginBottom: "0.3em",
-    color: number % 2 === 0 ? "blue" : "red",
+    color: count % 2 === 0 ? "royalblue" : "crimson", // Set color based on even/odd count
   };
-  const IncrementCLick = () => {
-    setNumber(number + 1);
-  };
-  const decrementCLick = () => {
-    setNumber(number - 1);
-    if (number === 0) {
-      setNumber(0);
-    }
-  };
-  const resetClick = () => {
-    setNumber(0);
-  };
-  const isNumberEven = number % 2 === 0 ? "even" : "odd";
 
   return (
-    <div className="counter-container">
+    <div className="widget-counter container">
       <h2>Counter</h2>
       <div style={style}>
-        Number {number} is {isNumberEven ? "Even" : "Odd"}
+        Number {count} is {count % 2 === 0 ? "even" : "odd"} {/* STEP 3 */}
       </div>
 
       <div>
-        <button style={{ cursor: "pointer" }} onClick={IncrementCLick}>
-          Increment
-        </button>
-        <button
-          style={{ cursor: number === 0 ? "not-allowed" : "pointer" }}
-          onClick={decrementCLick}
-          disabled={number === 0}
-        >
-          Decrement
-        </button>
-        <button style={{ cursor: "pointer" }} onClick={resetClick}>
-          Reset
-        </button>
+        {/* STEP 4 */}
+        <button onClick={() => setCount(count + 1)}>Increment</button> 
+        {/* STEP 5 */}
+        <button onClick={() => setCount(count - 1)}>Decrement</button> 
+        {/* STEP 6 */}
+        <button onClick={() => setCount(0)}>Reset</button>
       </div>
     </div>
   );
 }
+
